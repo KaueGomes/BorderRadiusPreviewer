@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Kaue Gomes">
+        <title>Border Radius Previewer</title>
+        <link rel="stylesheet" type= "text/css" href='index.css'>
+    </head>
+    <body>
+        <h1>Border Radius Previewer</h1>
+        <div Id="AlinhaTopo">
+            <div Id="BoxInput">
+                <input Id="TopoEsquerda" placeholder="0" value=""/>
+            </div>
+            <div Id="BoxInput">
+                <input Id="TopoDireita" placeholder="0" value=""/>
+            </div>
+        </div>
+
+        <div Id="BoxDemonstrativo">
+            <p Id="Demonstrativo"></p>
+        </div>
+
+        <div Id="AlinhaBaixo">
+            <div Id="BoxInput">
+                <input Id="BaixoEsquerda" placeholder="0" value=""/>
+            </div>
+            <div Id="BoxInput">
+                <input Id="BaixoDireita" placeholder="0" value=""/>
+            </div>
+        </div>
+        <div>
+            <button onclick="Bordas();">Gerar</button>
+        </div>
+        <script src="index.js"></script>
+        <script>
+            function Bordas(){
+                topleft = document.getElementById('TopoEsquerda').value;
+                topright = document.getElementById('TopoDireita').value;
+                bottomleft = document.getElementById('BaixoEsquerda').value;
+                bottomright = document.getElementById('BaixoDireita').value;
+                try{
+                    if(topleft === ""){
+                       topleft = "0";
+                       console.log(topleft + " Testado no if vazio");
+                    }
+                    if(topright === ""){
+                    topright = "0";
+                    }
+                    if(bottomleft === ""){
+                    bottomleft = "0";
+                    }
+                    if(bottomright === ""){
+                    bottomright = "0";
+                    }
+                    BordasScript(topleft,topright,bottomleft,bottomright);
+                    document.getElementById("Demonstrativo").innerText="border-top-left-radius: " + topleft + "px\nborder-top-right-radius: " + topright + "px\nborder-bottom-left-radius: " + bottomleft + "px\nborder-bottom-right-radius: " + bottomright + "px";
+                }
+                catch (error) {
+                    document.getElementById("Demonstrativo").innerText="Error";
+                }
+            }
+        </script>
+    </body>
+</html>
